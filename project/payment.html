@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlYaum Payment</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html">
+            <div class="logo">
+                <h1 class="logo" id="yellow">Al</h1>
+                <h1 class="logo">Yaum</h1>
+            </div>
+            </a>
+        </div>
+        <button class="nav-button" id="menuButton" onclick="toggleMenu()">
+            <svg height="25px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" style="fill:#fff;"/></svg>
+        </button>
+
+        <!-- Slide-in Menu -->
+        <div class="slide-menu" id="slideMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html#products">Services</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    </header>
+
+    <div class="container hero">
+        <h1 style="color: black;">Payment</h1>
+    </div>
+
+    <div class="payment-box">
+        <h2>Enter Payment Details</h2>
+        <form id="payment-form">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+
+            <label for="expiry-date">Expiry Date</label>
+            <input type="month" id="expiry-date" name="expiry-date" required>
+
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" name="cvv" maxlength="3" required>
+
+            <label for="card-name">Cardholder Name</label>
+            <input type="text" id="card-name" name="card-name" required>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Toko Buya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const paymentForm = document.getElementById('payment-form');
+
+        paymentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const cardNumber = document.getElementById('card-number').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+            const cardName = document.getElementById('card-name').value;
+
+            if (validateCardDetails(cardNumber, expiryDate, cvv)) {
+                alert('Payment successful!');
+                window.location.href = 'index.html'; // Redirect back to the homepage
+            } else {
+                alert('Invalid payment details. Please try again.');
+            }
+        });
+
+        function validateCardDetails(cardNumber, expiryDate, cvv) {
+            const cardNumberRegex = /^\d{16}$/;
+            const cvvRegex = /^\d{3}$/;
+
+            return (
+                cardNumberRegex.test(cardNumber.replace(/\s+/g, '')) &&
+                cvvRegex.test(cvv) &&
+                new Date(expiryDate) > new Date()
+            );
+        }
+    </script>
+    <script src="javascript/script.js"></script>
+</body>
+</html>

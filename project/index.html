@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlYaum home</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html">
+            <div class="logo">
+                <h1 class="logo" id="yellow">Al</h1>
+                <h1 class="logo">Yaum</h1>
+            </div>
+            </a>
+        </div>
+        <button class="nav-button" id="menuButton" onclick="toggleMenu()">
+            <svg height="25px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" style="fill:#fff;"/>
+            </svg>
+        </button>
+
+        <!-- Slide-in Menu -->
+        <div class="slide-menu" id="slideMenu">
+            <a href="index.html">Home</a>
+            <!--<a href="index.html#products">products</a>-->
+            <a href="index.html#products">Services</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="test.html">test</a>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    </header>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+          <img src="img/Madeena_masjid_nabawi.jpg" alt="Slide 1">
+          <img src="img/product2.png" alt="Slide 2">
+          <img src="img/Madeena_masjid_nabawi.jpg" alt="Slide 3">
+          <img src="img/product1.png" alt="Slide 4">
+        </div>
+    </div>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h2>Welcome to </h2>
+            <h2 id="yellow"> Al</h2>
+            <h2>Yaum</h2>
+            <p>Tempat penyaluran sedekah dan waqaf pilihanmu</p>
+            <a href="#products" class="btn">waqaf sekarang</a>
+        </div>
+    </section>
+
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Waqaf Products</h2>
+            <div class="product-grid">
+                <!-- Example Product Card -->
+                <div class="product-card">
+                    <img src="/img/product1.png" alt="">
+                    <h3>Alquran</h3>
+                    <p>Rp. 280.000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="/img/product2.png" alt="Product 2">
+                    <h3>Air Mineral</h3>
+                    <p>Rp. 300.000</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <section id="cart" class="cart">
+        <div class="container">
+            <h2>Your Cart</h2>
+            <div class="cart-items">
+                <p>No items in your cart yet!</p>
+            </div>
+            <div class="checkout">
+                <button id="checkout-button">Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Toko buya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="javascript/script.js"></script>
+</body>
+</html>
