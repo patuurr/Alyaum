@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Database Example</title>
+</head>
+<body>
+    <h1>LocalStorage Example</h1>
+    <input type="text" id="key" placeholder="Enter Key">
+    <input type="text" id="value" placeholder="Enter Value">
+    <button onclick="saveData()">Save to LocalStorage</button>
+    <button onclick="getData()">Retrieve Data</button>
+    <p id="output"></p>
+
+    <script>
+        function saveData() {
+            const key = document.getElementById('key').value;
+            const value = document.getElementById('value').value;
+
+            if (key && value) {
+                localStorage.setItem(key, value);
+                alert('Data saved!');
+            } else {
+                alert('Please enter both key and value.');
+            }
+        }
+
+        function getData() {
+            const key = document.getElementById('key').value;
+            const value = localStorage.getItem(key);
+
+            if (value) {
+                document.getElementById('output').textContent = `Value for "${key}" is "${value}".`;
+            } else {
+                document.getElementById('output').textContent = `No data found for "${key}".`;
+            }
+        }
+    </script>
+</body>
+</html>
